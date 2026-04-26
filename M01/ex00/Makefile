@@ -5,28 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ssukhija <ssukhija@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/07 14:45:50 by ssukhija          #+#    #+#              #
-#    Updated: 2025/08/07 14:45:50 by ssukhija         ###   ########.fr        #
+#    Created: 2026/03/23 22:17:27 by ssukhija          #+#    #+#              #
+#    Updated: 2026/03/23 22:17:27 by ssukhija         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
-
 # colours
 RESET = \033[0m
 RED = \033[1;31m
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
 
-NAME = phonebook
+NAME = zombie
 
 # flags
 CPP = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 RM = rm -rf
 
 # files
-SRCS = main.cpp PhoneBook.cpp Contact.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJ = $(SRCS:.cpp=.o)
 
 # rules
