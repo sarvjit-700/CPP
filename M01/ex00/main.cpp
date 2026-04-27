@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-Zombie* newZombie(std::string name);
-void    randomChump(std::string name);
+#include "Zombie.h"
 
 int main()
 {
-    Zombie* heapZombie = newZombie("HeapZombie");
-    heapZombie->announce();
+    Zombie* heapZombie;
 
+    heapZombie = newZombie("HeapZombie");
+    heapZombie->announce();
     delete heapZombie;
 
     randomChump("stackZombie");
