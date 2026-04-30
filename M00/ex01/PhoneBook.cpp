@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 
 PhoneBook::PhoneBook()
 {
@@ -19,19 +20,74 @@ PhoneBook::PhoneBook()
 }
 PhoneBook::~PhoneBook() {}
 
-std::string     get_input(std::string type)
+
+bool    is_letters(std::string str)
+{
+    size_t  i = 0;
+
+    while (i < str.length())
+    {
+        if (!std::isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
+            return false;
+        i++;
+    }
+    return true;
+}
+
+bool    is_numbers(std::string str)
+{
+    size_t  i = 0;
+
+    while (i < str.length())
+    {
+        if (!std::isdigit(str[i]))
+            return false;
+        i++;
+    }
+    return true;
+}
+
+bool    check_valid(std::string type, std::string input)
+{
+    if (type == "first name" || type == "last name")
+    {
+        if (!is_letters(input))
+        {
+            std::cout << "Use LETTERS only please. ";
+            return false;
+        }
+    }
+    if (type == "phone number")
+    {
+        if (!is_numbers(input))
+        {
+            std::cout << "Use NUMBERS only please. ";
+            return false;
+        }
+    }
+    return true;
+}
+
+
+std::string get_input(std::string type)
 {
     std::string input;
 
-    std::cout << "\nPlease enter the " << type << ":\n> ";
-    while(input.empty())
+    while(true)
     {
-        std::getline(std::cin, input);
+        std::cout << "Please enter the " << type << ": ";
+        if (!std::getline(std::cin, input))
+        {
+            std::cout << "\nEOF detected. Exiting Phonebook.\n";
+            std::exit(0);
+        }
         if (!input.empty())
-            break;
-        std::cout << "empty input! try again:\n> ";
+        {
+            if (check_valid(type, input))
+                return input;
+        }
+        std::cout << "Try again:\n";
     }
-    return (input);
 }
 
 std::string  trunc_str(std::string str)

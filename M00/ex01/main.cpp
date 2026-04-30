@@ -26,7 +26,7 @@ void	show_menu()
 }
 
 
-void    get_choice(PhoneBook pb)
+void    get_choice(PhoneBook &pb)
 {
     std::string choice;
 
@@ -35,7 +35,7 @@ void    get_choice(PhoneBook pb)
         if (choice == "ADD")
         {
             std::cout << "\n** Add a Contact **" << "\n" 
-                << "--------------------";
+                << "--------------------\n";
             pb.add_contact();
         }
         else if (choice == "SEARCH")

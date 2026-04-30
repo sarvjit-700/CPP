@@ -11,13 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-
-void changeCase(char c)
-{
-    if (c >= 'a' && c <= 'z' )
-        c = c - 'a' + 'A';
-    std::cout << c;
-}
+#include <cctype>
 
 int main(int argc, char **argv)
 {
@@ -34,10 +28,12 @@ int main(int argc, char **argv)
 
             while(argv[i][j])
             {
-                changeCase(argv[i][j]);   
+                std::cout << (char)std::toupper(argv[i][j]);
                 j++;
             }
             j = 0;
+            if (i < argc -1)
+                std::cout << " ";
             i++;
         }
     }
