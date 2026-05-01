@@ -12,9 +12,14 @@
 
 #include "Harl.hpp"
 
-Harl::Harl() {}
-Harl::~Harl() {}
-
+Harl::Harl() 
+{
+    std::cout << "HARL is created:" << std::endl;
+}
+Harl::~Harl()
+{
+    std::cout << "HARL is destroyed.." << std::endl;
+}
 
 void    Harl::complain(std::string level)
 {

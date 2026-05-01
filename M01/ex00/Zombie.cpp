@@ -17,11 +17,12 @@ Zombie::Zombie() {}
 Zombie::Zombie(std::string name)
 {
     this->name = name;
+    std::cout << "Zombie : " << this->name << " created\n";
 }
 
 Zombie::~Zombie()
 {
-    std::cout << this->name << " is destroyed\n";
+    std::cout << "Zombie : " << this->name << " is destroyed\n";
 }
 
 void Zombie::announce(void)
