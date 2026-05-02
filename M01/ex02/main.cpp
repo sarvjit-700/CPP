@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 
 int main()
 {
@@ -20,12 +19,12 @@ int main()
     std::string* stringPTR = &str;
     std::string& stringREF = str;
 
-    std::cout << &str << std::endl;
-    std::cout << stringPTR << std::endl;
-    std::cout << &stringREF << std::endl;
+    std::cout << "Address of string: " << &str << std::endl;
+    std::cout << "Address of pointer: " << stringPTR << std::endl;
+    std::cout << "Address of reference: " << &stringREF << std::endl;
 
-    std::cout << str << std::endl;
-    std::cout << *stringPTR << std::endl;
-    std::cout << stringREF << std::endl;
+    std::cout << "Value of the string: " << str << std::endl;
+    std::cout << "Value of the pointer: " << *stringPTR << std::endl;
+    std::cout << "Value of the reference: " << stringREF << std::endl;
     return (0);
 }

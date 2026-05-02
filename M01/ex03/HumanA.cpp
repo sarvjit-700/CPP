@@ -11,13 +11,18 @@
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-#include <iostream>
 
 HumanA::HumanA(std::string name, Weapon& weapon)
     : name(name), weapon(weapon) 
-{}
+{
+    std::cout << "HumanA " << name << " created with "
+            << weapon.getType() << std::endl;
+}
 
-HumanA::~HumanA() {}
+HumanA::~HumanA()
+{
+    std::cout << "HumanA " << this->name << " destroyed" << std::endl;
+}
 
 void    HumanA::attack(void)
 {

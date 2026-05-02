@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
     if (argc != 4)
     {
-        std::cout << "Error: Not enough arguments!\n" << std::endl;
+        std::cout << "Error: 3 arguments expected!\n" << std::endl;
         return (1);
     }
     filename = argv[1];
@@ -44,7 +44,11 @@ int main(int argc, char **argv)
     }
     std::string outname = filename + ".replace";
     std::ofstream outfile(outname.c_str());
-    
+    if (!outfile)
+    {
+        std::cout << "Error creating output file!\n";
+        return 1;
+    }    
     while (std::getline(infile, line))
     {
         pos = line.find(s1);
@@ -54,7 +58,9 @@ int main(int argc, char **argv)
             line.insert(pos, s2);
             pos = line.find(s1, pos + s2.length());
         }
-        outfile << line << std::endl;
+        outfile << line;
+        if (!infile.eof())
+            outfile << '\n';
     }
     return (0);
 }

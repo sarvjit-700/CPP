@@ -12,7 +12,10 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {}
+Zombie::Zombie() 
+{
+    std::cout << "Zombie created\n";
+}
 
 Zombie::Zombie(std::string name)
 {

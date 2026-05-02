@@ -11,11 +11,16 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-#include <iostream>
 
 HumanB::HumanB(std::string name) : name(name), weapon(NULL)
-{}
-HumanB::~HumanB() {}
+{
+    std::cout << "HumanB " << name 
+            << " created with no weapon" << std::endl;
+}
+HumanB::~HumanB()
+{
+    std::cout << "HumanB " << this->name << " destroyed" << std::endl;
+}
 
 void    HumanB::setWeapon(Weapon& weapon)
 {
